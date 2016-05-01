@@ -1,0 +1,26 @@
+Utiliser un logiciel pour analyser le wifi: 
+	- linSSID (linux)
+	- inSSIDER (windows)
+
+Generer des logs via les logiciels précédents
+
+parser ces logs pour génénérer un fichier json
+
+utiliser ces logs pour afficher les courbes
+
+ecrire les resultats des tests sur le site web
+
+--------------------------------------------------------
+
+
+goPro:
+	enregistrer les paquets videos avec scappy pour enregistrer la video
+
+
+drone:
+	trouver un moyen d'enregistrer la video (avec scappy, ou un script python)
+	prendre le controle avec plusieurs appareils
+
+
+
+yyyy-MM-dd HH:mm:ss,ssid,bssid,security,signal,noise,channel,frequency,width
