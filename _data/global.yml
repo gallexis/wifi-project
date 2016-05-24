@@ -1,0 +1,10 @@
+# Site Settings
+title: 'Expériences Ondes Wifi'
+description: 'Expériences Ondes Wifi'
+url: 'http://gallexis.github.io/wifi-project'
+footer_text: '&copy; 2016 - Université Pierre et Marie Curie.'
+
+# Admin Settings
+admin_name: 'Alexis'
+admin_email: 'gallexis@protonmail.com'
+
