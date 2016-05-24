@@ -3,10 +3,10 @@
   <channel>
     <title>Expériences Ondes Wifi</title>
     <description>Expériences Ondes Wifi</description>
-    <link>http://gallexis.github.io/wifi-project/</link>
-    <atom:link href="http://gallexis.github.io/wifi-project/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 24 May 2016 14:08:55 +0200</pubDate>
-    <lastBuildDate>Tue, 24 May 2016 14:08:55 +0200</lastBuildDate>
+    <link>https://gallexis.github.io/wifi-project/</link>
+    <atom:link href="https://gallexis.github.io/wifi-project/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 24 May 2016 17:50:37 +0200</pubDate>
+    <lastBuildDate>Tue, 24 May 2016 17:50:37 +0200</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
   </channel>

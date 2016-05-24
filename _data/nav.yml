@@ -1,5 +1,5 @@
 main:
-    - { url: '/', text: 'Accueil' }
+    - { url: '/', text: '' }
     - { url: '/drone', text: 'Drone' }
     - { url: '/go-pro', text: 'Go-Pro' }
     - { url: '/rapport', text: 'Rapport' }
