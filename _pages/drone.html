@@ -61,7 +61,8 @@ permalink: /drone/
                 </tbody>
             </table>
 
-            <div id="exp1" ></div>
+            <div id="exp1" data-values="[[0,-74],[19,-70],[30,-69],[49,0],[64,-71],[79,-68],[94,-70],[109,-72],[124,-70],[139,-66],[154,-70],[169,-70],[184,-70],[199,-72],[214,-64],[229,-72],[250,-70],[258,-68],[279,-69],[285,-69],[304,-71],[319,-69]]"></div>
+
         </div>
     </div>
 </div>
@@ -105,7 +106,7 @@ permalink: /drone/
                     </tr>
                     <tr>
                         <td> <b>Perturbation</b> utilisée: </td>
-                        <td>Présence d'une dizaine d'arbres entre le drone et le PC</td>
+                        <td>Distance de 25m (+ hauteur des herbes de 20cm )</td>
                     </tr>
                     <tr>
                         <td> <b>Désynchronisation</b> constatée (arrêt de la connexion wifi) ? </td>
@@ -114,11 +115,14 @@ permalink: /drone/
 
                     <tr>
                         <td> <b>Observation(s)/Remarque(s) </b> ?</td>
-                        <td>Malgré la présence d'arbres, la qualité du signal vidéo était bonne.</td>
+                        <td>Aucun obstacle entre le drone et le PC, pourtant le signal est d'environ 10dB plus faible que l'expérience à distance identique mais avec des arbres.
+                       	Lors de l'expérience, nous n'avons pas pris en compte la hauteur de l'herbe ( qui était de 20cm), on peut en déduire que les ondes sont "absorbées" par l'herbe et ne se reflètent pas sur le sol
+                        </td>
                     </tr>
                 </tbody>
             </table>
-            <div id="exp2" ></div>
+            
+            <div id="exp2" data-values="[[0,-60],[15,-61],[30,-64],[45,-59],[57,-57],[75,-54],[90,-55],[105,-64],[120,-56],[135,-61],[150,-55],[165,-58],[180,-55],[195,-57],[210,-62],[225,-63]]"></div>
         </div>
     </div>
 </div>
@@ -171,12 +175,71 @@ permalink: /drone/
 
                     <tr>
                         <td> <b>Observation(s)/Remarque(s) </b> ?</td>
-                        <td>Malgré la présence d'arbres, la qualité du signal vidéo était bonne.</td>
+                        <td>Malgré la présence d'arbres, la qualité du signal vidéo était bonne, on peut dire que les ondes ne sont pas génées par les arbres, et qu'elles passent à travers eux sans problème, ??? et rebondissent sur le sol (composé de terre) ???</td>
                     </tr>
                 </tbody>
             </table>
 
             <div id="exp3" data-values="[[0,-74],[19,-70],[30,-69],[49,-69],[64,-71],[79,-68],[94,-70],[109,-72],[124,-70],[139,-66],[154,-70],[169,-70],[184,-70],[199,-72],[214,-64],[229,-72],[250,-70],[258,-68],[279,-69],[285,-69],[304,-71],[319,-69]]"></div>
+
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+        <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Expérience #4 - Perturbation: sol arrondi
+            </a>
+        </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+        <div class="panel-body">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Détails sur l'expérience</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Le drone <b>volait</b>-il pendant l'expérience?</td>
+                        <td>Non</td>
+                    </tr>
+                    <tr>
+                        <td> <b>Commandes de vol</b> non/mal suivies?</td>
+                        <td>/</td>
+                    </tr>
+                    <tr>
+                        <td> <b>Distance</b> entre le drone et téléphone/PC (en mètres): </td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td> <b>Hauteur</b> entre le drone/PC et le sol (en mètres): </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td> <b>Canal wifi</b> Drone/PC </td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td> <b>Perturbation</b> utilisée: </td>
+                        <td>Présence d'une dizaine d'arbres entre le drone et le PC</td>
+                    </tr>
+                    <tr>
+                        <td> <b>Désynchronisation</b> constatée (arrêt de la connexion wifi) ? </td>
+                        <td>Non</td>
+                    </tr>
+
+                    <tr>
+                        <td> <b>Observation(s)/Remarque(s) </b> ?</td>
+                        <td>Malgré la présence d'arbres, la qualité du signal vidéo était bonne, on peut dire que les ondes ne sont pas génées par les arbres, et qu'elles passent à travers eux sans problème, ??? et rebondissent sur le sol (composé de terre) ???</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div id="exp4" data-values="[[0,-70],[22,-60],[26,-60],[45,-72],[60,-63],[75,-66],[90,-64],[105,-74],[120,-63],[135,-74],[150,-70],[165,-75],[180,-74],[195,-67],[210,-67],[225,-64],[240,-61],[255,-72]]"></div>
 
         </div>
     </div>
@@ -189,14 +252,17 @@ permalink: /drone/
 window.onload = function() {
 	google.charts.load('current', {packages: ['corechart', 'line']});
 
+	google.charts.setOnLoadCallback(function(){ drawChart('exp1') })
+	google.charts.setOnLoadCallback(function(){ drawChart('exp2') })
 	google.charts.setOnLoadCallback(function(){ drawChart('exp3') })
+	google.charts.setOnLoadCallback(function(){ drawChart('exp4') })
+	google.charts.setOnLoadCallback(function(){ drawChart('allXp') })
 
 	function drawChart(idXp) {
 
 		var id = document.getElementById(idXp)
 		var values = id.getAttribute('data-values');
 		
-
 		var data = new google.visualization.DataTable();
 		data.addColumn('number', 'Puissance');
 		data.addColumn('number', 'Expérience #?');
@@ -217,6 +283,41 @@ window.onload = function() {
 		width: 900,
 		height: 500,
 		};
+
+		var chart = new google.visualization.LineChart(id);
+		chart.draw(data, options);
+	}
+
+	function drawCharts(idXp) {
+
+		var id = document.getElementById(idXp)
+		var values = id.getAttribute('data-values');
+		
+		var data = new google.visualization.DataTable();
+		data.addColumn('number', 'Puissance');
+		data.addColumn('number', 'Expérience #?');
+
+		data.addRows(JSON.parse(values));
+
+		var options = {
+		hAxis: {
+		  title: 'Temps (Secondes)'
+		},
+		vAxis: {
+		  title: 'Puissance (dB)',
+		  viewWindow:{
+                max:0,
+                min:-100
+              }
+		},
+		width: 900,
+		height: 500,
+		animation: {
+	        duration: 1000,
+	        easing: 'out'
+	      },
+		};
+
 
 		var chart = new google.visualization.LineChart(id);
 		chart.draw(data, options);
