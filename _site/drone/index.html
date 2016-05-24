@@ -64,20 +64,20 @@
                 <ul class="nav navbar-nav navbar-right">
                     
                         <li>
-                            <a  href="https://gallexis.github.io/wifi-project//"></a>
+                            <a  href="https://gallexis.github.io/wifi-project/"></a>
                         </li>
                     
                         <li>
                             <a  style="color:white" 
-                             href="https://gallexis.github.io/wifi-project//drone">Drone</a>
+                             href="https://gallexis.github.io/wifi-project/drone">Drone</a>
                         </li>
                     
                         <li>
-                            <a  href="https://gallexis.github.io/wifi-project//go-pro">Go-Pro</a>
+                            <a  href="https://gallexis.github.io/wifi-project/go-pro">Go-Pro</a>
                         </li>
                     
                         <li>
-                            <a  href="https://gallexis.github.io/wifi-project//rapport">Rapport</a>
+                            <a  href="https://gallexis.github.io/wifi-project/rapport">Rapport</a>
                         </li>
                     
                 </ul>
@@ -97,7 +97,7 @@
 <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
         <h4 class="panel-title">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            <a class="collapsed exp1" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
             Expérience #1 - Meilleur cas possible
             </a>
         </h4>
@@ -148,7 +148,7 @@
                 </tbody>
             </table>
 
-            <div id="exp1" data-values="[[0,-74],[19,-70],[30,-69],[49,0],[64,-71],[79,-68],[94,-70],[109,-72],[124,-70],[139,-66],[154,-70],[169,-70],[184,-70],[199,-72],[214,-64],[229,-72],[250,-70],[258,-68],[279,-69],[285,-69],[304,-71],[319,-69]]"></div>
+            <div id="exp1" data-values="[[0,-74],[19,-70],[30,-69],[49,0],[64,-71],[79,-68],[94,-70],[109,-72],[124,-70],[139,-66],[154,-70],[169,-70],[184,-70],[199,-72],[214,-64],[229,-72],[250,-70],[258,-68],[279,-69],[285,-69],[304,-71],[319,-69]]" ></div>
 
         </div>
     </div>
@@ -156,7 +156,7 @@
 <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
         <h4 class="panel-title">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <a class="collapsed exp2" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
             Expérience #2 - Perturbation: Distance (25m)
             </a>
         </h4>
@@ -202,8 +202,7 @@
 
                     <tr>
                         <td> <b>Observation(s)/Remarque(s) </b> ?</td>
-                        <td>Aucun obstacle entre le drone et le PC, pourtant le signal est d'environ 10dB plus faible que l'expérience à distance identique mais avec des arbres.
-                       	Lors de l'expérience, nous n'avons pas pris en compte la hauteur de l'herbe ( qui était de 20cm), on peut en déduire que les ondes sont "absorbées" par l'herbe et ne se reflètent pas sur le sol
+                        <td>Aucun obstacle entre le drone et le PC, le signal est ??dB plus faible que lors de conditions optimales.
                         </td>
                     </tr>
                 </tbody>
@@ -216,8 +215,8 @@
 <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingThree">
         <h4 class="panel-title">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Expérience #3 - Perturbation: Arbres
+            <a class="collapsed exp3" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Expérience #3 - Perturbation: Arbres (25m)
             </a>
         </h4>
     </div>
@@ -262,7 +261,7 @@
 
                     <tr>
                         <td> <b>Observation(s)/Remarque(s) </b> ?</td>
-                        <td>Malgré la présence d'arbres, la qualité du signal vidéo était bonne, on peut dire que les ondes ne sont pas génées par les arbres, et qu'elles passent à travers eux sans problème, ??? et rebondissent sur le sol (composé de terre) ???</td>
+                        <td>Malgré la présence d'arbres, la qualité du signal vidéo était bonne. Cette expérience montre qu'avec uniquement le facteur "présence d'arbres", le signal est atténué d'en moyenne 10dB, donc les arbres diminuent la puissance du signal.</td>
                     </tr>
                 </tbody>
             </table>
@@ -275,7 +274,7 @@
 <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingFour">
         <h4 class="panel-title">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            <a class="collapsed exp4" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
             Expérience #4 - Perturbation: sol arrondi
             </a>
         </h4>
@@ -332,21 +331,22 @@
     </div>
 </div>
 
+<div id="allXp"></div>
 
 
 <script type="text/javascript">
 
 window.onload = function() {
+
 	google.charts.load('current', {packages: ['corechart', 'line']});
 
 	google.charts.setOnLoadCallback(function(){ drawChart('exp1') })
 	google.charts.setOnLoadCallback(function(){ drawChart('exp2') })
 	google.charts.setOnLoadCallback(function(){ drawChart('exp3') })
 	google.charts.setOnLoadCallback(function(){ drawChart('exp4') })
-	google.charts.setOnLoadCallback(function(){ drawChart('allXp') })
+	google.charts.setOnLoadCallback(function(){ drawCharts('allXp') })
 
 	function drawChart(idXp) {
-
 		var id = document.getElementById(idXp)
 		var values = id.getAttribute('data-values');
 		
@@ -378,15 +378,45 @@ window.onload = function() {
 	function drawCharts(idXp) {
 
 		var id = document.getElementById(idXp)
-		var values = id.getAttribute('data-values');
-		
+		var values = [] 
+		var sizeMinArray = []
+		var newValues = []
+		var tmp = []
+
+
 		var data = new google.visualization.DataTable();
 		data.addColumn('number', 'Puissance');
-		data.addColumn('number', 'Expérience #?');
 
-		data.addRows(JSON.parse(values));
+		$('[id^=exp]').each(function() {
+    		values.push(JSON.parse(document.getElementById(this.id).getAttribute('data-values')))
+    		data.addColumn('number', $("."+this.id).text().replace("Expérience ","") );
+		});
+
+		// Get the smallest size of an array
+		for (var i in values)
+		{
+			sizeMinArray.push(values[i].length)
+		}
+
+		// create new array to display every values of every arrays
+		for(var i =0; i< Math.min.apply( Math, sizeMinArray ); i++)
+		{
+			var time = values[0][i][0]
+			for(var j in values)
+			{
+				tmp.push(values[j][i][1])
+			}
+			tmp.unshift(time)
+			newValues.push(tmp)
+			tmp = []
+		}
+
+		//console.log(newValues)
+
+		data.addRows(newValues);
 
 		var options = {
+			chartArea:{left:"7%"},
 		hAxis: {
 		  title: 'Temps (Secondes)'
 		},
@@ -397,12 +427,9 @@ window.onload = function() {
                 min:-100
               }
 		},
-		width: 900,
-		height: 500,
-		animation: {
-	        duration: 1000,
-	        easing: 'out'
-	      },
+		width: 1000,
+		height: 600,
+
 		};
 
 

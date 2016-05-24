@@ -65,7 +65,7 @@
                     {% for item in site.data.nav.main %}
                         <li>
                             <a {% if page.title == item.text %} style="color:white" 
-                            {% endif %} href="{{ site.data.global.url }}/{{ item.url }}">{{ item.text }}</a>
+                            {% endif %} href="{{ site.data.global.url }}{{ item.url }}">{{ item.text }}</a>
                         </li>
                     {% endfor %}
                 </ul>
