@@ -22,26 +22,15 @@
     <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64 96x96" href="{{ site.data.global.url }}/favicon.ico">
     <link rel="apple-touch-icon" sizes="57x57" href="{{ site.data.global.url }}/img/favicons/favicon-57.png">
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ site.data.global.url }}/img/favicons/favicon-57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ site.data.global.url }}/img/favicons/favicon-60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ site.data.global.url }}/img/favicons/favicon-72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ site.data.global.url }}/img/favicons/favicon-76.png">
-    <link rel="apple-touch-icon" sizes="96x96" href="{{ site.data.global.url }}/img/favicons/favicon-96.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ site.data.global.url }}/img/favicons/favicon-114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ site.data.global.url }}/img/favicons/favicon-120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ site.data.global.url }}/img/favicons/favicon-144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ site.data.global.url }}/img/favicons/favicon-152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.data.global.url }}/img/favicons/favicon-180.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="{{ site.data.global.url }}/img/favicons/favicon-192.png">
-    <meta name="application-name" content="{{ site.data.global.title }} ♥ {{ site.data.global.description }}">
-    <meta name="msapplication-TileImage" content="{{ site.data.global.url }}/img/favicons/favicon-144.png">
+    <meta name="application-name" content="{{ site.data.global.title }}">
     <meta name="msapplication-TileColor" content="#ffffff">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="/css/css.css">
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ site.data.global.url }}/css/css.css">
+    <link rel="stylesheet" href="{{ site.data.global.url }}/css/font-awesome.min.css">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ site.data.global.url }}/css/style.css">
     <!--[if lt IE 9]>
         <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="{{ site.data.global.url }}/js/respond.min.js"></script>
@@ -66,7 +55,7 @@
                     {% for item in site.data.nav.main %}
                         <li>
                             <a {% if page.title == item.text %} style="color:white" 
-                            {% endif %} href="{{ item.url }}">{{ item.text }}</a>
+                            {% endif %} href="{{ site.data.global.url }}/{{ item.url }}">{{ item.text }}</a>
                         </li>
                     {% endfor %}
                 </ul>
