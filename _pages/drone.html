@@ -291,6 +291,34 @@ function average(array)
 	}
 }
 
+function toMultiLines(array)
+{
+	var sizeMinArray = []
+	var newValues = []
+	var tmp = []
+
+	// Get the smallest size of an array
+	for (var i in array)
+	{
+		sizeMinArray.push(array[i].length)
+	}
+
+	// create new array to display every values of every arrays
+	for(var i =0; i< Math.min.apply( Math, sizeMinArray ); i++)
+	{
+		var time = array[0][i][0]
+		for(var j in array)
+		{
+			tmp.push(array[j][i][1])
+		}
+		tmp.unshift(time)
+		newValues.push(tmp)
+		tmp = []
+	}
+
+	return newValues
+}
+
 window.onload = function() {
 
 	google.charts.load('current', {packages: ['corechart', 'line']});
@@ -299,7 +327,7 @@ window.onload = function() {
 	google.charts.setOnLoadCallback(function(){ drawChart('exp2') })
 	google.charts.setOnLoadCallback(function(){ drawChart('exp3') })
 	google.charts.setOnLoadCallback(function(){ drawChart('exp4') })
-	google.charts.setOnLoadCallback(function(){ drawCharts('allXp') })
+	google.charts.setOnLoadCallback(function(){ drawChartOfAllExperiences('allXp') })
 
 	function drawChart(idXp) {
 		var id = document.getElementById(idXp)
@@ -335,46 +363,29 @@ window.onload = function() {
 		chart.draw(data, options);
 	}
 
-	function drawCharts(idXp) {
+	function drawChartOfAllExperiences(idXp) {
 
 		var id = document.getElementById(idXp)
 		var values = [] 
-		var sizeMinArray = []
-		var newValues = []
-		var tmp = []
-
 
 		var data = new google.visualization.DataTable();
 		data.addColumn('number', 'Puissance');
 
+		// Get the values frome every everiences
 		$('[id^=exp]').each(function() {
 			arrayValues = JSON.parse(document.getElementById(this.id).getAttribute('data-values'))
     		values.push(arrayValues)
-    		data.addColumn('number', $("."+this.id).text().replace("Expérience ","") + "- Moyenne: "+average(arrayValues)+" dB - " + "("+$('span.'+this.id+"max").text()+","+$('span.'+this.id+"min").text()+")dB");
+
+    		data.addColumn('number', 
+    					$("."+this.id).text().replace("Expérience ","") + 
+    					"- Moyenne: "+$('span.'+this.id+"avrg").text()+" dB - " +
+    					"("+$('span.'+this.id+"max").text()+","+
+    					$('span.'+this.id+"min").text()+")dB");  
 		});
 
-		// Get the smallest size of an array
-		for (var i in values)
-		{
-			sizeMinArray.push(values[i].length)
-		}
-
-		// create new array to display every values of every arrays
-		for(var i =0; i< Math.min.apply( Math, sizeMinArray ); i++)
-		{
-			var time = values[0][i][0]
-			for(var j in values)
-			{
-				tmp.push(values[j][i][1])
-			}
-			tmp.unshift(time)
-			newValues.push(tmp)
-			tmp = []
-		}
-
-		//console.log(newValues)
-
-		data.addRows(newValues);
+		// toMultiLines() creates a new array for googleCharts to be able to
+		// display a graph with others experiences data (multi-lines graph)
+		data.addRows(toMultiLines(values));
 
 		var options = {
 			chartArea:{left:"7%"},
