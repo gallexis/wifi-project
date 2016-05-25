@@ -6140,9 +6140,6 @@ aside {
     height: 100%;
     display: block; }
 
-pre {
-  margin: 75px -100px; }
-
 @media only screen and (max-width: 991px) {
   pre {
     margin-left: 0;
@@ -6162,12 +6159,3 @@ pre {
   .tile .excerpt {
     font-size: 22px;
     line-height: 35px; } }
-table.highlighttable {
-  overflow-x: auto;
-  display: block; }
-
-table.highlighttable td.code {
-  width: 100%; }
-
-pre code {
-  white-space: pre; }
