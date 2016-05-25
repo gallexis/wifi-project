@@ -351,7 +351,257 @@
     </div>
 </div>
 
-<div id="allXp"></div>
+<div style="width: 1000,height: 700" id="allXp"> </div>
+
+
+
+<h2>Protocole de tests - AR.Drone</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFive">
+        <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            Protocole:
+            </a>
+        </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+        <div class="panel-body">
+            
+			<ol>
+			  	<li>  
+
+			  		<br /> 
+			  		- Ouvrir Wireshark <br />
+					- Ouvrir iStumbler <br />
+					- Ouvrir programme python 
+				</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Mettre la batterie dans le drone & attendre que les voyants s'allument
+			  	</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Se connecter au réseau du drone
+			  	</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Lancer wireshark <br />
+					- Lancer iStumbler
+				</li>
+			  
+			  	<li> 
+			  		<br /> 
+			  		- Exécuter programme python <br />
+					- Faire décoller le drone
+				</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Attendre 4 à 5min
+			  	</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Faire atterir le drone <br />
+					- Quitter le programme python
+				</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Stopper wireshark <br />
+					- Stopper iStumbler
+				</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Enregistrer les logs iStumbler & Wireshark
+			  	</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Ajouter les logs et les interpretations de l'experience dans un nouveau dossier
+				</li>
+			</ol>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<h2>Code Parseur - Python</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingsix">
+        <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            Code:
+            </a>
+        </h4>
+    </div>
+    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+        <div class="panel-body">
+            
+
+			<figure class="highlight"><pre><code class="language-python" data-lang="python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</pre></td><td class="code"><pre>			<span class="k">def</span> <span class="nf">HMS_to_seconds</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
+			    <span class="n">time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">':'</span><span class="p">)</span>
+			    <span class="n">time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="mi">3600</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="mi">60</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+			    <span class="k">return</span> <span class="n">time</span>
+
+			<span class="k">def</span> <span class="nf">calculate_elapsed_time</span><span class="p">(</span><span class="n">initial</span><span class="p">,</span><span class="n">current</span><span class="p">):</span>
+			    <span class="k">return</span> <span class="n">current</span><span class="o">-</span><span class="n">initial</span>
+
+			<span class="k">def</span> <span class="nf">parse_log</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+			    <span class="n">parsed_lines</span> <span class="o">=</span> <span class="p">[]</span>
+			    <span class="n">start_time</span> <span class="o">=</span> <span class="mi">0</span>
+
+			    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+			        <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+			    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">content</span><span class="p">:</span>
+			        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">','</span><span class="p">)</span>
+
+			        <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s">"ardrone_086188"</span><span class="p">:</span>
+			            <span class="k">continue</span>
+
+			        <span class="n">signal</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+			        <span class="n">time</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+			        <span class="k">if</span> <span class="n">start_time</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+			            <span class="n">start_time</span> <span class="o">=</span> <span class="n">HMS_to_seconds</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+			            <span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+			        <span class="k">else</span><span class="p">:</span>
+			            <span class="n">time</span> <span class="o">=</span> <span class="n">calculate_elapsed_time</span><span class="p">(</span><span class="n">start_time</span><span class="p">,</span><span class="n">HMS_to_seconds</span><span class="p">(</span><span class="n">time</span><span class="p">))</span>
+
+			        <span class="n">parsed_line</span> <span class="o">=</span> <span class="p">{</span><span class="s">"time"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="p">),</span> <span class="s">"signal"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">signal</span><span class="p">)}</span>
+			        <span class="n">parsed_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parsed_line</span><span class="p">)</span>
+
+			    <span class="k">return</span> <span class="n">parsed_lines</span>
+
+
+			<span class="k">def</span> <span class="nf">convert_to_graphStruct</span><span class="p">(</span><span class="n">parsed_lines</span><span class="p">):</span>
+			    <span class="n">graph_lines</span> <span class="o">=</span> <span class="s">"["</span>
+
+			    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">parsed_lines</span><span class="p">:</span>
+			        <span class="n">graph_lines</span> <span class="o">+=</span>  <span class="s">"["</span> <span class="o">+</span> <span class="n">line</span><span class="p">[</span><span class="s">"time"</span><span class="p">]</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">line</span><span class="p">[</span><span class="s">"signal"</span><span class="p">]</span> <span class="o">+</span> <span class="s">"],"</span>
+
+			    <span class="n">graph_lines</span> <span class="o">=</span> <span class="n">graph_lines</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+			    <span class="n">graph_lines</span> <span class="o">+=</span> <span class="s">"]"</span>
+
+			    <span class="k">print</span><span class="p">(</span><span class="n">graph_lines</span><span class="p">)</span>
+
+
+
+			<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+
+			    <span class="n">file_name</span> <span class="o">=</span> <span class="s">"/Users/alexisgallepe/Desktop/log.txt"</span>
+			    <span class="n">parsed_lines</span> <span class="o">=</span> <span class="n">parse_log</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+			    <span class="n">convert_to_graphStruct</span><span class="p">(</span><span class="n">parsed_lines</span><span class="p">)</span>
+
+
+
+			<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script type="text/javascript">

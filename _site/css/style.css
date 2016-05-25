@@ -6162,3 +6162,12 @@ pre {
   .tile .excerpt {
     font-size: 22px;
     line-height: 35px; } }
+table.highlighttable {
+  overflow-x: auto;
+  display: block; }
+
+table.highlighttable td.code {
+  width: 100%; }
+
+pre code {
+  white-space: pre; }

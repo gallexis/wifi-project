@@ -264,7 +264,200 @@ permalink: /drone/
     </div>
 </div>
 
-<div id="allXp"></div>
+<div style="width: 1000,height: 700" id="allXp"> </div>
+
+
+
+<h2>Protocole de tests - AR.Drone</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFive">
+        <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            Protocole:
+            </a>
+        </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+        <div class="panel-body">
+            
+			<ol>
+			  	<li>  
+
+			  		<br /> 
+			  		- Ouvrir Wireshark <br />
+					- Ouvrir iStumbler <br />
+					- Ouvrir programme python 
+				</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Mettre la batterie dans le drone & attendre que les voyants s'allument
+			  	</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Se connecter au réseau du drone
+			  	</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Lancer wireshark <br />
+					- Lancer iStumbler
+				</li>
+			  
+			  	<li> 
+			  		<br /> 
+			  		- Exécuter programme python <br />
+					- Faire décoller le drone
+				</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Attendre 4 à 5min
+			  	</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Faire atterir le drone <br />
+					- Quitter le programme python
+				</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Stopper wireshark <br />
+					- Stopper iStumbler
+				</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Enregistrer les logs iStumbler & Wireshark
+			  	</li>
+
+			  	<li> 
+			  		<br /> 
+			  		- Ajouter les logs et les interpretations de l'experience dans un nouveau dossier
+				</li>
+			</ol>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<h2>Code Parseur - Python</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingsix">
+        <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            Code:
+            </a>
+        </h4>
+    </div>
+    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+        <div class="panel-body">
+            
+
+			{% highlight python linenos=table %}
+
+			def HMS_to_seconds(time):
+			    time = time.split(':')
+			    time = int(time[0])*3600 + int(time[1])*60 + int(time[2])
+
+			    return time
+
+			def calculate_elapsed_time(initial,current):
+			    return current-initial
+
+			def parse_log(file_name):
+			    parsed_lines = []
+			    start_time = 0
+
+			    with open(file_name) as f:
+			        content = f.readlines()
+
+			    for line in content:
+			        line = line.split(',')
+
+			        if not line[2] == "ardrone_086188":
+			            continue
+
+			        signal = line[5]
+			        time = line[0].split(' ')[1]
+
+			        if start_time == 0:
+			            start_time = HMS_to_seconds(time)
+			            time = 0
+			        else:
+			            time = calculate_elapsed_time(start_time,HMS_to_seconds(time))
+
+			        parsed_line = {"time": str(time), "signal": str(signal)}
+			        parsed_lines.append(parsed_line)
+
+			    return parsed_lines
+
+
+			def convert_to_graphStruct(parsed_lines):
+			    graph_lines = "["
+
+			    for line in parsed_lines:
+			        graph_lines +=  "[" + line["time"] + "," + line["signal"] + "],"
+
+			    graph_lines = graph_lines[:-1]
+			    graph_lines += "]"
+
+			    print(graph_lines)
+
+
+
+			if __name__ == '__main__':
+
+			    file_name = "/Users/alexisgallepe/Desktop/log.txt"
+			    parsed_lines = parse_log(file_name)
+			    convert_to_graphStruct(parsed_lines)
+
+
+
+			{% endhighlight %}
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script type="text/javascript">
