@@ -121,8 +121,12 @@
                         <td>/</td>
                     </tr>
                     <tr>
+                        <td> <b>Environnement</b> de l'expérience: </td>
+                        <td>Pièce de 10m2, aucun réseau wifi parasite</td>
+                    </tr>
+                    <tr>
                         <td> <b>Distance</b> entre le drone et téléphone/PC (en mètres): </td>
-                        <td>25</td>
+                        <td>1</td>
                     </tr>
                     <tr>
                         <td> <b>Hauteur</b> entre le drone/PC et le sol (en mètres): </td>
@@ -134,7 +138,7 @@
                     </tr>
                     <tr>
                         <td> <b>Perturbation</b> utilisée: </td>
-                        <td>Présence d'une dizaine d'arbres entre le drone et le PC</td>
+                        <td>Aucune</td>
                     </tr>
                     <tr>
                         <td> <b>Désynchronisation</b> constatée (arrêt de la connexion wifi) ? </td>
@@ -143,14 +147,14 @@
 
                     <tr>
                         <td> <b>Observation(s)/Remarque(s) </b> ?</td>
-                        <td>Malgré la présence d'arbres, la qualité du signal vidéo était bonne.</td>
+                        <td>Qualité vidéo optimale</td>
                     </tr>
                 </tbody>
             </table>
 
             <b>Puissance Max</b>: <span class="exp1max"> </span>dB <br />
             <b>Puissance Min</b>: <span class="exp1min"> </span>dB <br />
-            <b>Moyenne</b>: XX dB
+            <b>Moyenne</b>: <span class="exp1avrg"> </span> dB
 
             <div id="exp1" data-values="[[0,-74],[19,-70],[30,-69],[49,0],[64,-71],[79,-68],[94,-70],[109,-72],[124,-70],[139,-66],[154,-70],[169,-70],[184,-70],[199,-72],[214,-64],[229,-72],[250,-70],[258,-68],[279,-69],[285,-69],[304,-71],[319,-69]]" ></div>
 
@@ -214,7 +218,7 @@
             
             <b>Puissance Max</b>: <span class="exp2max"> </span>dB <br />
             <b>Puissance Min</b>: <span class="exp2min"> </span>dB <br />
-            <b>Moyenne</b>: XX dB
+            <b>Moyenne</b>: <span class="exp2avrg"> </span> dB
 
             <div id="exp2" data-values="[[0,-60],[15,-61],[30,-64],[45,-59],[57,-57],[75,-54],[90,-55],[105,-64],[120,-56],[135,-61],[150,-55],[165,-58],[180,-55],[195,-57],[210,-62],[225,-63]]"></div>
         </div>
@@ -276,7 +280,7 @@
 
             <b>Puissance Max</b>: <span class="exp3max"> </span>dB <br />
             <b>Puissance Min</b>: <span class="exp3min"> </span>dB <br />
-            <b>Moyenne</b>: XX dB
+            <b>Moyenne</b>: <span class="exp3avrg"> </span> dB
 
             <div id="exp3" data-values="[[0,-74],[19,-70],[30,-69],[49,-69],[64,-71],[79,-68],[94,-70],[109,-72],[124,-70],[139,-66],[154,-70],[169,-70],[184,-70],[199,-72],[214,-64],[229,-72],[250,-70],[258,-68],[279,-69],[285,-69],[304,-71],[319,-69]]"></div>
 
@@ -339,7 +343,7 @@
 
             <b>Puissance Max</b>: <span class="exp4max"> </span>dB <br />
             <b>Puissance Min</b>: <span class="exp4min"> </span>dB <br />
-            <b>Moyenne</b>: XX dB
+            <b>Moyenne</b>: <span class="exp4avrg"> </span>dB
 
             <div id="exp4" data-values="[[0,-70],[22,-60],[26,-60],[45,-72],[60,-63],[75,-66],[90,-64],[105,-74],[120,-63],[135,-74],[150,-70],[165,-75],[180,-74],[195,-67],[210,-67],[225,-64],[240,-61],[255,-72]]"></div>
 
@@ -351,6 +355,28 @@
 
 
 <script type="text/javascript">
+
+function average(array)
+{
+	var sum = 0
+	var arrayLength = array.length
+
+	for(var i in array)
+	{
+		sum += array[i][1]
+	}
+
+	// check if divide by 0
+	try
+	{
+		return parseInt(sum / arrayLength)
+	}
+	catch(e)
+	{
+		console.log(e)
+		return 0
+	}
+}
 
 window.onload = function() {
 
@@ -364,13 +390,14 @@ window.onload = function() {
 
 	function drawChart(idXp) {
 		var id = document.getElementById(idXp)
-		var values = id.getAttribute('data-values');
+		var strValues = id.getAttribute('data-values');
+		var parsedValues = JSON.parse(strValues)
 		
 		var data = new google.visualization.DataTable();
 		data.addColumn('number', 'Puissance');
 		data.addColumn('number', 'Exp ');
 
-		data.addRows(JSON.parse(values));
+		data.addRows(parsedValues);
 
 		var options = {
 		hAxis: {
@@ -389,6 +416,7 @@ window.onload = function() {
 
 		$('span.'+idXp+"max").text(data.getColumnRange(1).max);
 		$('span.'+idXp+"min").text(data.getColumnRange(1).min);
+		$('span.'+idXp+"avrg").text(average(parsedValues));
 
 		var chart = new google.visualization.LineChart(id);
 		chart.draw(data, options);
@@ -407,8 +435,9 @@ window.onload = function() {
 		data.addColumn('number', 'Puissance');
 
 		$('[id^=exp]').each(function() {
-    		values.push(JSON.parse(document.getElementById(this.id).getAttribute('data-values')))
-    		data.addColumn('number', $("."+this.id).text().replace("Expérience ","") + "- Moyenne: XX dB - " + "("+$('span.'+this.id+"max").text()+","+$('span.'+this.id+"min").text()+")dB");
+			arrayValues = JSON.parse(document.getElementById(this.id).getAttribute('data-values'))
+    		values.push(arrayValues)
+    		data.addColumn('number', $("."+this.id).text().replace("Expérience ","") + "- Moyenne: "+average(arrayValues)+" dB - " + "("+$('span.'+this.id+"max").text()+","+$('span.'+this.id+"min").text()+")dB");
 		});
 
 		// Get the smallest size of an array
@@ -447,7 +476,7 @@ window.onload = function() {
               }
 		},
 		width: 1000,
-		height: 600,
+		height: 700,
 
 		};
 
