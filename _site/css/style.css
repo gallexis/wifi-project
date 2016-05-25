@@ -6140,6 +6140,9 @@ aside {
     height: 100%;
     display: block; }
 
+pre {
+  margin: 75px -100px; }
+
 @media only screen and (max-width: 991px) {
   pre {
     margin-left: 0;
