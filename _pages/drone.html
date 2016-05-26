@@ -278,7 +278,7 @@ permalink: /drone/
     <div class="panel-heading" role="tab" id="headingFive">
         <h4 class="panel-title">
             <a class="collapsed exp5" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive" >
-            Expérience #5 - Meilleur cas possible + Pire cas possible
+            Expérience #5 - Situation de vol
             </a>
         </h4>
     </div>
@@ -294,23 +294,23 @@ permalink: /drone/
                 <tbody>
                     <tr>
                         <td>Le drone <b>volait</b>-il pendant l'expérience?</td>
-                        <td>Non</td>
+                        <td>Oui</td>
                     </tr>
                     <tr>
                         <td> <b>Commandes de vol</b> non/mal suivies?</td>
-                        <td>/</td>
+                        <td>Aucun problème</td>
                     </tr>
                     <tr>
                         <td> <b>Environnement</b> de l'expérience: </td>
-                        <td>Pièce de 10m2, aucun réseau wifi parasite</td>
+                        <td>Cours de 30m2</td>
                     </tr>
                     <tr>
                         <td> <b>Distance</b> entre le drone et téléphone/PC (en mètres): </td>
-                        <td>0,5</td>
+                        <td>Une dizaine de mètres</td>
                     </tr>
                     <tr>
                         <td> <b>Hauteur</b> entre le drone/PC et le sol (en mètres): </td>
-                        <td>1</td>
+                        <td>1 à 3</td>
                     </tr>
                     <tr>
                         <td> <b>Canal wifi</b> Drone/PC </td>
@@ -318,7 +318,7 @@ permalink: /drone/
                     </tr>
                     <tr>
                         <td> <b>Perturbation</b> utilisée: </td>
-                        <td>Aucune</td>
+                        <td>2 réseaux wifi environnants</td>
                     </tr>
                     <tr>
                         <td> <b>Désynchronisation</b> constatée (arrêt de la connexion wifi) ? </td>
@@ -336,7 +336,7 @@ permalink: /drone/
             <b>Puissance Min</b>: <span class="exp5min"> </span>dB <br />
             <b>Moyenne</b>: <span class="exp5avrg"> </span> dB
 
-            <div id="exp5" data-values="[[0,-30],[20,-29],[30,-30],[48,-30],[63,-29],[78,-31],[93,-31],[108,-29],[123,-30],[138,-31],[153,-29],[168,-29],[183,-29],[198,-33],[213,-31],[228,-31],[243,-32],[258,-31],[273,-31],[288,-33]]" ></div>
+            <div id="exp5" data-values="[[0,-54],[15,-52],[30,-54],[45,-58],[60,-55],[75,-62],[90,-51],[105,-55],[120,-67],[135,-63]]" ></div>
 
         </div>
     </div>
@@ -470,7 +470,7 @@ permalink: /drone/
             <b>Puissance Min</b>: <span class="exp7min"> </span>dB <br />
             <b>Moyenne</b>: <span class="exp7avrg"> </span> dB
 
-            <div id="exp6" data-values="[[0,-30],[20,-29],[30,-30],[48,-30],[63,-29],[78,-31],[93,-31],[108,-29],[123,-30],[138,-31],[153,-29],[168,-29],[183,-29],[198,-33],[213,-31],[228,-31],[243,-32],[258,-31],[273,-31],[288,-33]]" ></div>
+            <div id="exp7" data-values="[[0,-30],[20,-29],[30,-30],[48,-30],[63,-29],[78,-31],[93,-31],[108,-29],[123,-30],[138,-31],[153,-29],[168,-29],[183,-29],[198,-33],[213,-31],[228,-31],[243,-32],[258,-31],[273,-31],[288,-33]]" ></div>
 
         </div>
     </div>
@@ -673,29 +673,43 @@ function average(array)
 
 function toMultiLines(array)
 {
-	var sizeMinArray = []
+	var sizeArrays = []
+    var sizeMaxArrays = 0
 	var newValues = []
 	var tmp = []
+    var time = 0
 
-	// Get the smallest size of an array
+	// Get the biggest size of an array
 	for (var i in array)
 	{
-		sizeMinArray.push(array[i].length)
+		sizeArrays.push(array[i].length)
 	}
 
+    sizeMaxArrays = Math.max.apply( Math, sizeArrays )
+
 	// create new array to display every values of every arrays
-	for(var i =0; i< Math.min.apply( Math, sizeMinArray ); i++)
+	for(var i =0; i< sizeMaxArrays; i++)
 	{
-		var time = array[0][i][0]
+		
 		for(var j in array)
 		{
-			tmp.push(array[j][i][1])
+            if(array[j].length == sizeMaxArrays)
+                time = array[j][i][0]
+
+            try
+            {
+                tmp.push(array[j][i][1])
+            }
+            catch(e)
+            {
+                tmp.push(null)
+            }
 		}
+
 		tmp.unshift(time)
 		newValues.push(tmp)
 		tmp = []
 	}
-
 	return newValues
 }
 
@@ -703,13 +717,17 @@ window.onload = function() {
 
 	google.charts.load('current', {packages: ['corechart', 'line']});
 
-	google.charts.setOnLoadCallback(function(){ drawChart('exp1') })
-	google.charts.setOnLoadCallback(function(){ drawChart('exp2') })
-	google.charts.setOnLoadCallback(function(){ drawChart('exp3') })
-	google.charts.setOnLoadCallback(function(){ drawChart('exp4') })
-	google.charts.setOnLoadCallback(function(){ drawChartOfAllExperiences('allXp') })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp1") })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp2") })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp3") })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp4") })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp5") })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp6") })
+    
+    google.charts.setOnLoadCallback(function(){ drawChartOfAllExperiences('allXp') })
 
 	function drawChart(idXp) {
+
 		var id = document.getElementById(idXp)
 		var strValues = id.getAttribute('data-values');
 		var parsedValues = JSON.parse(strValues)
@@ -741,6 +759,7 @@ window.onload = function() {
 
 		var chart = new google.visualization.LineChart(id);
 		chart.draw(data, options);
+
 	}
 
 	function drawChartOfAllExperiences(idXp) {
@@ -768,7 +787,8 @@ window.onload = function() {
 		data.addRows(toMultiLines(values));
 
 		var options = {
-			chartArea:{left:"7%",top:"2%",bottom:"15%"},
+		chartArea:{left:"7%",top:"2%",bottom:"15%"},
+        interpolateNulls: false,
 		hAxis: {
 		  title: 'Temps (Secondes)'
 		},

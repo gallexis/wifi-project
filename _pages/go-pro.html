@@ -349,7 +349,7 @@ permalink: /go-pro/
             <b>Puissance Min</b>: <span class="exp6min"> </span>dB <br />
             <b>Moyenne</b>: <span class="exp6avrg"> </span> dB
 
-            <div id="" data-values="[[0,-30],[20,-29],[30,-30],[48,-30],[63,-29],[78,-31],[93,-31],[108,-29],[123,-30],[138,-31],[153,-29],[168,-29],[183,-29],[198,-33],[213,-31],[228,-31],[243,-32],[258,-31],[273,-31],[288,-33]]" ></div>
+            <div id="exp6" data-values="[[0,-30],[20,-29],[30,-30],[48,-30],[63,-29],[78,-31],[93,-31],[108,-29],[123,-30],[138,-31],[153,-29],[168,-29],[183,-29],[198,-33],[213,-31],[228,-31],[243,-32],[258,-31],[273,-31],[288,-33]]" ></div>
 
         </div>
     </div>
@@ -375,19 +375,23 @@ permalink: /go-pro/
                 <tbody>
                     <tr>
                         <td> <b>Environnement</b> de l'expérience: </td>
-                        <td>Pièce de 18m2, avec plusieurs autres wifi </td>
+                        <td>Pièce de 30m2, avec plusieurs autres wifi </td>
                     </tr>
                     <tr>
                         <td> <b>Distance</b> entre la Go-Pro et PC : </td>
-                        <td>Juste à côté du micro-onde et à 2m du PC</td>
+                        <td>Juste à côté du PC</td>
                     </tr>
                     <tr>
                         <td> <b>Canal wifi</b> Go-pro/PC </td>
-                        <td>6</td>
+                        <td>11</td>
+                    </tr>
+					<tr>
+                        <td> <b>Canal wifi</b> échange FTP </td>
+                        <td>11</td>
                     </tr>
                     <tr>
                         <td> <b>Perturbation</b> utilisée: </td>
-                        <td>Ondes du micro-onde</td>
+                        <td>Echange Ftp sur le même canal</td>
                     </tr>
                     <tr>
                         <td> <b>Désynchronisation</b> constatée (arrêt de la connexion wifi) ? </td>
@@ -396,7 +400,8 @@ permalink: /go-pro/
 
                     <tr>
                         <td> <b>Observation(s)/Remarque(s) </b> ?</td>
-                        <td>Les pertubations liées au micro-onde étaient très faible, la qualité de la vidéo reste la même que dans les expériences précédente</td>
+                        <td>Aucune pertubation au niveau de la transmission vidéo. On remarque néansmoins que le débit varie au niveau du transfert FTP.
+						Il est plus faible lorsqu'on lance le streaming de la Go-Pro</td>
                     </tr>
                 </tbody>
             </table>
@@ -405,7 +410,7 @@ permalink: /go-pro/
             <b>Puissance Min</b>: <span class="exp7min"> </span>dB <br />
             <b>Moyenne</b>: <span class="exp7avrg"> </span> dB
 
-            <div id="" data-values="[[0,-30],[20,-29],[30,-30],[48,-30],[63,-29],[78,-31],[93,-31],[108,-29],[123,-30],[138,-31],[153,-29],[168,-29],[183,-29],[198,-33],[213,-31],[228,-31],[243,-32],[258,-31],[273,-31],[288,-33]]" ></div>
+            <div id="exp7" data-values="[[0,-13],[3,-10],[5,-20],[8,-10],[11,-9],[14,-14],[17,-13],[19,-17],[22,-18],[25,-10],[28,-11],[31,-14],[34,-14],[36,-19],[39,-19],[42,-11],[45,-11],[48,-21],[50,-11],[53,-18],[56,-18],[59,-11],[62,-11],[65,-14],[68,-18],[70,-11],[73,-11],[76,-11],[79,-22],[82,-18],[85,-18],[87,-11],[90,-11],[93,-19],[96,-19],[99,-11],[102,-11],[105,-21],[107,-14],[110,-21],[113,-14],[116,-19],[119,-11],[122,-11],[124,-11],[127,-19],[130,-19],[133,-11],[136,-11],[139,-19],[141,-19],[144,-14],[147,-19],[150,-19],[153,-14],[156,-11],[158,-19],[161,-14],[164,-11],[167,-14],[170,-14],[173,-14],[175,-14],[178,-11],[181,-11],[184,-11],[187,-11],[190,-18],[193,-11],[195,-14],[198,-10],[201,-19],[204,-11],[207,-17],[210,-14],[213,-19],[215,-19],[218,-19],[221,-14],[224,-11],[227,-11],[230,-11],[232,-18],[235,-18],[238,-19],[241,-11],[244,-10],[246,-11],[249,-19],[252,-11],[255,-10],[258,-10],[261,-19],[264,-18],[266,-11],[269,-14],[272,-11],[275,-14],[278,-11],[280,-11],[283,-14],[286,-19],[289,-11],[292,-10],[295,-22],[298,-10],[300,-11],[303,-19],[306,-11],[309,-11],[312,-10],[314,-11],[317,-10],[320,-18],[323,-11],[326,-11],[329,-11],[331,-11],[334,-11],[337,-19],[340,-10],[343,-11],[346,-10],[349,-11],[351,-11],[354,-11],[357,-11],[360,-10],[363,-10],[366,-10],[369,-11],[371,-19],[374,-18],[377,-11],[380,-11],[383,-11],[386,-11],[388,-11],[391,-11],[394,-11],[397,-18],[400,-11],[402,-11],[405,-19],[408,-11],[411,-14],[414,-11],[417,-11],[419,-10],[594,-11],[597,-11],[600,-10],[603,-14],[606,-11],[609,-18],[611,-19],[614,-19],[617,-10],[620,-18],[623,-10],[626,-10],[629,-19],[631,-10],[634,-11],[637,-18],[640,-10],[643,-17],[646,-17],[648,-10],[651,-17],[654,-10],[657,-18],[660,-17],[663,-17],[666,-9],[668,-18],[678,-9],[681,-9]]" ></div>
 
         </div>
     </div>
@@ -414,8 +419,8 @@ permalink: /go-pro/
 <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingEight">
         <h4 class="panel-title">
-            <a class="collapsed exp7" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight" >
-            Expérience #8 - Echange Ftp sur un canal différent mais pas orthogonal à celui de la Go-Pro
+            <a class="collapsed exp8" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight" >
+            Expérience #8 - Echange Ftp sur un canal (le 10) différent mais pas orthogonal à celui de la Go-Pro ( 11 ).
             </a>
         </h4>
     </div>
@@ -429,21 +434,25 @@ permalink: /go-pro/
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                     <tr>
                         <td> <b>Environnement</b> de l'expérience: </td>
-                        <td>Pièce de 18m2, avec plusieurs autres wifi </td>
+                        <td>Pièce de 30m2, avec plusieurs autres wifi </td>
                     </tr>
                     <tr>
                         <td> <b>Distance</b> entre la Go-Pro et PC : </td>
-                        <td>Juste à côté du micro-onde et à 2m du PC</td>
+                        <td>Juste à côté du PC</td>
                     </tr>
                     <tr>
                         <td> <b>Canal wifi</b> Go-pro/PC </td>
-                        <td>6</td>
+                        <td>11</td>
+                    </tr>
+					<tr>
+                        <td> <b>Canal wifi</b> échange FTP </td>
+                        <td>10</td>
                     </tr>
                     <tr>
                         <td> <b>Perturbation</b> utilisée: </td>
-                        <td>Ondes du micro-onde</td>
+                        <td>Echange Ftp sur canal différent</td>
                     </tr>
                     <tr>
                         <td> <b>Désynchronisation</b> constatée (arrêt de la connexion wifi) ? </td>
@@ -452,16 +461,17 @@ permalink: /go-pro/
 
                     <tr>
                         <td> <b>Observation(s)/Remarque(s) </b> ?</td>
-                        <td>Les pertubations liées au micro-onde étaient très faible, la qualité de la vidéo reste la même que dans les expériences précédente</td>
+                        <td>Contrairement à nos attentes,on a remarqué aucune pertubation au niveau de la transmission vidéo. On remarque néansmoins que le débit varie au niveau du transfert FTP.
+						Il est plus faible lorsqu'on lance le streaming de la Go-Pro</td>
                     </tr>
                 </tbody>
             </table>
 
-            <b>Puissance Max</b>: <span class="exp7max"> </span>dB <br />
-            <b>Puissance Min</b>: <span class="exp7min"> </span>dB <br />
-            <b>Moyenne</b>: <span class="exp7avrg"> </span> dB
+            <b>Puissance Max</b>: <span class="exp8max"> </span>dB <br />
+            <b>Puissance Min</b>: <span class="exp8min"> </span>dB <br />
+            <b>Moyenne</b>: <span class="exp8avrg"> </span> dB
 
-            <div id="" data-values="[[0,-30],[20,-29],[30,-30],[48,-30],[63,-29],[78,-31],[93,-31],[108,-29],[123,-30],[138,-31],[153,-29],[168,-29],[183,-29],[198,-33],[213,-31],[228,-31],[243,-32],[258,-31],[273,-31],[288,-33]]" ></div>
+            <div id="exp8" data-values="[[0,-20],[2,-18],[5,-9],[8,-18],[11,-10],[13,-17],[16,-10],[19,-18],[22,-10],[25,-18],[27,-18],[30,-17],[33,-16],[36,-18],[38,-10],[41,-17],[44,-11],[47,-15],[50,-14],[52,-11],[55,-10],[58,-14],[61,-19],[63,-11],[66,-14],[69,-11],[72,-19],[74,-10],[77,-18],[80,-11],[83,-14],[86,-19],[88,-14],[91,-19],[94,-19],[97,-19],[100,-19],[102,-11],[105,-10],[108,-14],[111,-19],[113,-11],[116,-14],[119,-19],[122,-11],[125,-14],[127,-11],[130,-19],[133,-11],[136,-14],[139,-19],[142,-11],[144,-19],[147,-10],[150,-18],[153,-19],[156,-14],[159,-11],[162,-19],[164,-11],[167,-11],[170,-14],[173,-18],[175,-18],[178,-14],[181,-19],[184,-19],[187,-11],[190,-11],[192,-19],[195,-11],[198,-21],[201,-11],[203,-11],[206,-18],[209,-11],[212,-10],[215,-11],[217,-19],[220,-11],[223,-11],[226,-19],[228,-11],[231,-14],[234,-11],[237,-18],[239,-18],[242,-15],[245,-14],[248,-19],[251,-14],[254,-14],[256,-11],[259,-21],[262,-17],[265,-19],[268,-19],[270,-11],[273,-15],[276,-18],[279,-19],[281,-19],[284,-19],[287,-10],[290,-14],[292,-19],[295,-11],[298,-14],[301,-11],[304,-10],[306,-11],[309,-11],[312,-19],[315,-11],[318,-11],[320,-19],[323,-11],[326,-11],[329,-10],[331,-11],[334,-11],[337,-11],[340,-19],[343,-18],[345,-19],[348,-21],[351,-11],[354,-11],[357,-11],[359,-11],[362,-17],[365,-11],[368,-14],[370,-11],[373,-14],[376,-18],[379,-14],[382,-14],[384,-11],[387,-14],[390,-14],[393,-19],[396,-18],[399,-10],[402,-14],[404,-19],[407,-14],[410,-19],[413,-15],[416,-19],[418,-21],[421,-15],[424,-19],[427,-19],[429,-19],[432,-35],[435,-19],[438,-46],[441,-44],[443,-35],[446,-37],[449,-39],[452,-41],[454,-38],[457,-40],[460,-43],[463,-39],[465,-44],[468,-42],[471,-41],[474,-42],[477,-49],[479,-44],[482,-45],[485,-52],[488,-46],[490,-49],[493,-47],[496,-48],[499,-47],[502,-49],[504,-54],[507,-42],[510,-47],[513,-56],[516,-48],[519,-54],[522,-49],[524,-52],[527,-48],[530,-56],[533,-51],[536,-48],[538,-57],[541,-51],[906,-8]]" ></div>
 
         </div>
     </div>
@@ -471,7 +481,7 @@ permalink: /go-pro/
     <div class="panel-heading" role="tab" id="headingNine">
         <h4 class="panel-title">
             <a class="collapsed exp9" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine" >
-            Expérience #9 - Echange FTP sur un canal orthogonal à celui de la Go-Pro
+            Expérience #9 - Echange FTP sur un canal différent de celui de la Go-Pro
             </a>
         </h4>
     </div>
@@ -487,19 +497,23 @@ permalink: /go-pro/
                 <tbody>
                     <tr>
                         <td> <b>Environnement</b> de l'expérience: </td>
-                        <td>Pièce de 18m2, avec plusieurs autres wifi </td>
+                        <td>Pièce de 30m2, avec plusieurs autres wifi </td>
                     </tr>
                     <tr>
                         <td> <b>Distance</b> entre la Go-Pro et PC : </td>
-                        <td>Juste à côté du micro-onde et à 2m du PC</td>
+                        <td>Juste à côté du PC</td>
                     </tr>
                     <tr>
                         <td> <b>Canal wifi</b> Go-pro/PC </td>
-                        <td>6</td>
+                        <td>11</td>
+                    </tr>
+					<tr>
+                        <td> <b>Canal wifi</b> échange FTP </td>
+                        <td>8</td>
                     </tr>
                     <tr>
                         <td> <b>Perturbation</b> utilisée: </td>
-                        <td>Ondes du micro-onde</td>
+                        <td>Echange Ftp sur un canal différent</td>
                     </tr>
                     <tr>
                         <td> <b>Désynchronisation</b> constatée (arrêt de la connexion wifi) ? </td>
@@ -508,21 +522,82 @@ permalink: /go-pro/
 
                     <tr>
                         <td> <b>Observation(s)/Remarque(s) </b> ?</td>
-                        <td>Les pertubations liées au micro-onde étaient très faible, la qualité de la vidéo reste la même que dans les expériences précédente</td>
+                        <td>Toujours aucune pertubation au niveau de la transmission vidéo. On remarque néansmoins que le débit varie au niveau du transfert FTP.
+						Il est plus faible lorsqu'on lance le streaming de la Go-Pro</td>
                     </tr>
                 </tbody>
             </table>
 
-            <b>Puissance Max</b>: <span class="exp7max"> </span>dB <br />
-            <b>Puissance Min</b>: <span class="exp7min"> </span>dB <br />
-            <b>Moyenne</b>: <span class="exp7avrg"> </span> dB
+            <b>Puissance Max</b>: <span class="exp9max"> </span>dB <br />
+            <b>Puissance Min</b>: <span class="exp9min"> </span>dB <br />
+            <b>Moyenne</b>: <span class="exp9avrg"> </span> dB
 
-            <div id="" data-values="[[0,-30],[20,-29],[30,-30],[48,-30],[63,-29],[78,-31],[93,-31],[108,-29],[123,-30],[138,-31],[153,-29],[168,-29],[183,-29],[198,-33],[213,-31],[228,-31],[243,-32],[258,-31],[273,-31],[288,-33]]" ></div>
+            <div id="exp9" data-values="[[0,-8],[3,-17],[6,-17],[9,-9],[12,-18],[15,-18],[17,-8],[20,-8],[23,-17],[26,-17],[29,-8],[32,-8],[35,-8],[37,-8],[40,-9],[43,-8],[46,-17],[49,-17],[52,-9],[54,-16],[57,-9],[60,-8],[63,-8],[66,-8],[68,-18],[71,-17],[74,-9],[77,-8],[80,-9],[82,-17],[85,-17],[88,-17],[91,-15],[94,-18],[97,-17],[100,-8],[103,-8],[106,-17],[109,-9],[111,-8],[114,-17],[117,-9],[120,-17],[123,-9],[125,-17],[128,-9],[131,-8],[134,-8],[137,-18],[139,-16],[142,-17],[145,-9],[148,-17],[151,-18],[153,-18],[156,-17],[159,-18],[162,-7],[165,-8],[168,-18],[171,-9],[173,-17],[176,-18],[179,-18],[182,-8],[185,-8],[187,-9],[190,-18],[193,-9],[196,-9],[199,-9],[202,-17],[204,-8],[207,-9],[210,-17],[213,-7],[216,-18],[219,-18],[221,-9],[224,-18],[227,-8],[230,-9],[233,-18],[235,-8],[238,-19],[241,-17],[244,-15],[247,-17],[249,-16],[252,-15],[255,-16],[258,-18],[261,-9],[264,-8],[266,-19],[269,-9],[272,-8],[275,-9],[278,-8],[280,-7],[283,-8],[286,-8],[289,-7],[292,-8],[294,-8],[297,-19],[300,-9],[303,-8],[306,-18],[308,-8],[311,-8]]" ></div>
 
         </div>
     </div>
 </div>
 
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTen">
+        <h4 class="panel-title">
+            <a class="collapsed exp10" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen" >
+            Expérience #10 - Echange FTP sur un canal orthogonal à celui de la Go-Pro
+            </a>
+        </h4>
+    </div>
+    <div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen">
+        <div class="panel-body">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Détails sur l'expérience</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <b>Environnement</b> de l'expérience: </td>
+                        <td>Pièce de 30m2, avec plusieurs autres wifi </td>
+                    </tr>
+                    <tr>
+                        <td> <b>Distance</b> entre la Go-Pro et PC : </td>
+                        <td>Juste à côté du PC</td>
+                    </tr>
+                    <tr>
+                        <td> <b>Canal wifi</b> Go-pro/PC </td>
+                        <td>11</td>
+                    </tr>
+					<tr>
+                        <td> <b>Canal wifi</b> échange FTP </td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td> <b>Perturbation</b> utilisée: </td>
+                        <td>Echange Ftp sur un canal orthogonal</td>
+                    </tr>
+                    <tr>
+                        <td> <b>Désynchronisation</b> constatée (arrêt de la connexion wifi) ? </td>
+                        <td>Non</td>
+                    </tr>
+
+                    <tr>
+                        <td> <b>Observation(s)/Remarque(s) </b> ?</td>
+                        <td>Aucune pertubation au niveau de la transmission vidéo. On remarque néansmoins que le débit varie au niveau du transfert FTP.
+						Il est plus faible lorsqu'on lance le streaming de la Go-Pro</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <b>Puissance Max</b>: <span class="exp10max"> </span>dB <br />
+            <b>Puissance Min</b>: <span class="exp10min"> </span>dB <br />
+            <b>Moyenne</b>: <span class="exp10avrg"> </span> dB
+
+            <div id="exp10" data-values="[[0,-19],[3,-9],[5,-9],[8,-8],[11,-9],[14,-9],[17,-18],[20,-8],[22,-8],[25,-18],[28,-8],[31,-8],[34,-17],[36,-18],[39,-8],[42,-19],[45,-8],[48,-9],[50,-18],[53,-9],[56,-9],[59,-18],[62,-8],[64,-8],[67,-9],[70,-9],[73,-18],[76,-18],[79,-18],[81,-18],[84,-8],[87,-8],[90,-9],[93,-18],[96,-9],[98,-17],[101,-8],[104,-18],[107,-17],[110,-18],[112,-18],[115,-8],[118,-9],[121,-18],[124,-9],[126,-19],[129,-9],[132,-8],[135,-18],[138,-8],[140,-9],[143,-9],[146,-9],[149,-9],[152,-17],[154,-8],[157,-8],[160,-18],[163,-17],[166,-19],[168,-19],[171,-8],[174,-18],[177,-17],[180,-18],[182,-8],[185,-8],[188,-21],[191,-18],[194,-9],[196,-18],[199,-9],[202,-21],[205,-19],[208,-19],[210,-9],[213,-18],[216,-8],[219,-18],[222,-8],[225,-9],[227,-9],[230,-18],[233,-18],[236,-9],[238,-8],[241,-8],[244,-17],[247,-9],[250,-9],[252,-18],[255,-18],[258,-9],[261,-8],[264,-17],[266,-8],[269,-8],[272,-9],[275,-9],[278,-18],[280,-8],[283,-18],[286,-8],[289,-17],[292,-18],[294,-9],[297,-8],[300,-8],[303,-8],[306,-9],[308,-18],[311,-9],[314,-17],[317,-8],[320,-8],[323,-9],[325,-18],[328,-9],[331,-8],[334,-18],[337,-17],[339,-9],[342,-9],[345,-9],[348,-9],[351,-18],[353,-18],[356,-8],[359,-19],[362,-9],[365,-9],[367,-19],[370,-8],[373,-21],[376,-9],[379,-19],[382,-18],[385,-18],[387,-8],[390,-18],[393,-18],[396,-9],[399,-14],[401,-14],[404,-14],[407,-15],[410,-17],[413,-18],[415,-15],[418,-15],[421,-19],[424,-18],[427,-16],[430,-14],[432,-15],[435,-14],[438,-19],[441,-15],[443,-14],[446,-16],[449,-16],[452,-17],[455,-15],[457,-14],[460,-19],[463,-14],[466,-18],[469,-14],[471,-15],[474,-15],[477,-16],[480,-18],[483,-16],[485,-19],[488,-14],[491,-14],[494,-14],[497,-14],[499,-16],[502,-17],[505,-16],[508,-15],[511,-16],[513,-14],[516,-14],[519,-16],[522,-14],[525,-14],[527,-14],[530,-19],[533,-14],[536,-17],[539,-16],[542,-16]]" ></div>
+
+        </div>
+    </div>
+</div>
 
 <h3>Vue d'ensemble</h3>
 <div style="width: 1000px;height: 700px;display:block" id="allXp"> &nbsp;</div>
@@ -702,146 +777,166 @@ permalink: /go-pro/
 
 function average(array)
 {
-	var sum = 0
-	var arrayLength = array.length
+    var sum = 0
+    var arrayLength = array.length
 
-	for(var i in array)
-	{
-		sum += array[i][1]
-	}
+    for(var i in array)
+    {
+        sum += array[i][1]
+    }
 
-	// check if divide by 0
-	try
-	{
-		return parseInt(sum / arrayLength)
-	}
-	catch(e)
-	{
-		console.log(e)
-		return 0
-	}
+    // check if divide by 0
+    try
+    {
+        return parseInt(sum / arrayLength)
+    }
+    catch(e)
+    {
+        console.log(e)
+        return 0
+    }
 }
 
 function toMultiLines(array)
 {
-	var sizeMinArray = []
-	var newValues = []
-	var tmp = []
+    var sizeArrays = []
+    var sizeMaxArrays = 0
+    var newValues = []
+    var tmp = []
+    var time = 0
 
-	// Get the smallest size of an array
-	for (var i in array)
-	{
-		sizeMinArray.push(array[i].length)
-        console.log(array[i].length)
-	}
+    // Get the biggest size of an array
+    for (var i in array)
+    {
+        sizeArrays.push(array[i].length)
+    }
 
-	// create new array to display every values of every arrays
-	for(var i =0; i< Math.min.apply( Math, sizeMinArray ); i++)
-	{
-		var time = array[0][i][0]
-		for(var j in array)
-		{
-			tmp.push(array[j][i][1])
-		}
-		tmp.unshift(time)
-		newValues.push(tmp)
-		tmp = []
-	}
+    sizeMaxArrays = Math.max.apply( Math, sizeArrays )
 
-	return newValues
+    // create new array to display every values of every arrays
+    for(var i =0; i< sizeMaxArrays; i++)
+    {
+        
+        for(var j in array)
+        {
+            if(array[j].length == sizeMaxArrays)
+                time = array[j][i][0]
+
+            try
+            {
+                tmp.push(array[j][i][1])
+            }
+            catch(e)
+            {
+                tmp.push(null)
+            }
+        }
+
+        tmp.unshift(time)
+        newValues.push(tmp)
+        tmp = []
+    }
+    return newValues
 }
 
 window.onload = function() {
 
-	google.charts.load('current', {packages: ['corechart', 'line']});
+    google.charts.load('current', {packages: ['corechart', 'line']});
 
-	google.charts.setOnLoadCallback(function(){ drawChart('exp1') })
-	google.charts.setOnLoadCallback(function(){ drawChart('exp2') })
-	google.charts.setOnLoadCallback(function(){ drawChart('exp3') })
-	google.charts.setOnLoadCallback(function(){ drawChart('exp4') })
-    google.charts.setOnLoadCallback(function(){ drawChart('exp5') })
-    //google.charts.setOnLoadCallback(function(){ drawChart('exp6') })
-    //google.charts.setOnLoadCallback(function(){ drawChart('exp7') })
-    //google.charts.setOnLoadCallback(function(){ drawChart('exp8') })
-    //google.charts.setOnLoadCallback(function(){ drawChart('exp9') })
-	google.charts.setOnLoadCallback(function(){ drawChartOfAllExperiences('allXp') })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp1") })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp2") })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp3") })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp4") })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp5") })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp6") })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp7") })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp8") })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp9") })
+    google.charts.setOnLoadCallback(function(){ drawChart("exp10") })
+    
+    google.charts.setOnLoadCallback(function(){ drawChartOfAllExperiences('allXp') })
 
-	function drawChart(idXp) {
-		var id = document.getElementById(idXp)
-		var strValues = id.getAttribute('data-values');
-		var parsedValues = JSON.parse(strValues)
-		
-		var data = new google.visualization.DataTable();
-		data.addColumn('number', 'Puissance');
-		data.addColumn('number', 'Exp ');
+    function drawChart(idXp) {
 
-		data.addRows(parsedValues);
+        var id = document.getElementById(idXp)
+        var strValues = id.getAttribute('data-values');
+        var parsedValues = JSON.parse(strValues)
+        
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Puissance');
+        data.addColumn('number', 'Exp ');
 
-		var options = {
-		hAxis: {
-		  title: 'Temps (Secondes)'
-		},
-		vAxis: {
-		  title: 'Puissance (dB)',
-		  viewWindow:{
+        data.addRows(parsedValues);
+
+        var options = {
+        hAxis: {
+          title: 'Temps (Secondes)'
+        },
+        vAxis: {
+          title: 'Puissance (dB)',
+          viewWindow:{
                 max:0,
                 min:-100
               }
-		},
-		width: 900,
-		height: 500,
-		};
+        },
+        width: 900,
+        height: 500,
+        };
 
-		$('span.'+idXp+"max").text(data.getColumnRange(1).max);
-		$('span.'+idXp+"min").text(data.getColumnRange(1).min);
-		$('span.'+idXp+"avrg").text(average(parsedValues));
+        $('span.'+idXp+"max").text(data.getColumnRange(1).max);
+        $('span.'+idXp+"min").text(data.getColumnRange(1).min);
+        $('span.'+idXp+"avrg").text(average(parsedValues));
 
-		var chart = new google.visualization.LineChart(id);
-		chart.draw(data, options);
-	}
+        var chart = new google.visualization.LineChart(id);
+        chart.draw(data, options);
 
-	function drawChartOfAllExperiences(idXp) {
+    }
 
-		var id = document.getElementById(idXp)
-		var values = [] 
+    function drawChartOfAllExperiences(idXp) {
 
-		var data = new google.visualization.DataTable();
-		data.addColumn('number', 'Puissance');
+        var id = document.getElementById(idXp)
+        var values = [] 
 
-		// Get the values frome every everiences
-		$('[id^=exp]').each(function() {
-			arrayValues = JSON.parse(document.getElementById(this.id).getAttribute('data-values'))
-    		values.push(arrayValues)
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Puissance');
 
-    		data.addColumn('number', 
-    					$("."+this.id).text().replace("Expérience ","") + 
-    					"- Moyenne: "+$('span.'+this.id+"avrg").text()+" dB - " +
-    					"("+$('span.'+this.id+"max").text()+","+
-    					$('span.'+this.id+"min").text()+")dB");  
-		});
+        // Get the values frome every everiences
+        $('[id^=exp]').each(function() {
+            arrayValues = JSON.parse(document.getElementById(this.id).getAttribute('data-values'))
+            values.push(arrayValues)
 
-		// toMultiLines() creates a new array for googleCharts to be able to
-		// display a graph with others experiences data (multi-lines graph)
-		data.addRows(toMultiLines(values));
+            data.addColumn('number', 
+                        $("."+this.id).text().replace("Expérience ","") + 
+                        "- Moyenne: "+$('span.'+this.id+"avrg").text()+" dB - " +
+                        "("+$('span.'+this.id+"max").text()+","+
+                        $('span.'+this.id+"min").text()+")dB");  
+        });
 
-		var options = {
-			chartArea:{left:"7%",top:"2%",bottom:"15%"},
-		hAxis: {
-		  title: 'Temps (Secondes)'
-		},
-		vAxis: {
-		  title: 'Puissance (dB)',
-		  viewWindow:{
+        // toMultiLines() creates a new array for googleCharts to be able to
+        // display a graph with others experiences data (multi-lines graph)
+        data.addRows(toMultiLines(values));
+
+        var options = {
+        chartArea:{left:"7%",top:"2%",bottom:"15%"},
+        interpolateNulls: false,
+        hAxis: {
+          title: 'Temps (Secondes)'
+        },
+        vAxis: {
+          title: 'Puissance (dB)',
+          viewWindow:{
                 max:0,
-                min:-60
+                min:-100
               }
-		},
+        },
+        width: 1000,
+        height: 700,
 
-		};
+        };
 
-		var chart = new google.visualization.LineChart(id);
-		chart.draw(data, options);
-	}
+        var chart = new google.visualization.LineChart(id);
+        chart.draw(data, options);
+    }
 
 };
 </script>
